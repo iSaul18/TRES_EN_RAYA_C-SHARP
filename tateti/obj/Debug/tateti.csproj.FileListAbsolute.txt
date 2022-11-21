@@ -1,0 +1,8 @@
+C:\Users\saulh\source\repos\tateti\tateti\bin\Debug\tateti.exe.config
+C:\Users\saulh\source\repos\tateti\tateti\bin\Debug\tateti.exe
+C:\Users\saulh\source\repos\tateti\tateti\bin\Debug\tateti.pdb
+C:\Users\saulh\source\repos\tateti\tateti\obj\Debug\tateti.csproj.AssemblyReference.cache
+C:\Users\saulh\source\repos\tateti\tateti\obj\Debug\tateti.csproj.SuggestedBindingRedirects.cache
+C:\Users\saulh\source\repos\tateti\tateti\obj\Debug\tateti.csproj.CoreCompileInputs.cache
+C:\Users\saulh\source\repos\tateti\tateti\obj\Debug\tateti.exe
+C:\Users\saulh\source\repos\tateti\tateti\obj\Debug\tateti.pdb
