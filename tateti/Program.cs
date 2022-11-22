@@ -81,19 +81,13 @@ namespace tateti
         {
             int ingresoSeguro = 0;
             IngresoCorrecto = int.TryParse(Console.ReadLine(), out ingresoSeguro);
-
-            if (ingresoSeguro.ToString().Length != 1)
-            {
-                IngresoCorrecto = false;
-                return;
-            }
             Ingreso = ingresoSeguro;
         }
 
         //Verificar que solo ingresen números
         static public bool VerificarIngreso()
         {
-            if (!IngresoCorrecto || dataInput.Contains(Ingreso))
+            if (!IngresoCorrecto || dataInput.Contains(Ingreso) || Ingreso.ToString().Length != 1)
             {
                 Console.WriteLine(
                     "-Solo se admiten números del 1 - 9\n-Los numeros no pueden repetirse\n-Escriba un número válido para seguir jugando, sino se finalizará el juego"
@@ -101,7 +95,11 @@ namespace tateti
 
                 RecibirIngreso();
 
-                if (!IngresoCorrecto || dataInput.Contains(Ingreso))
+                if (
+                    !IngresoCorrecto
+                    || dataInput.Contains(Ingreso)
+                    || Ingreso.ToString().Length != 1
+                )
                 {
                     Console.WriteLine("Gracias por jugar");
                     Console.ReadKey();
