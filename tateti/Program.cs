@@ -46,6 +46,12 @@ namespace tateti
                     if (IsPlayerWin())
                         break;
                 }
+
+                if (turno == 9)
+                {
+                    Console.WriteLine("Empate");
+                    Console.ReadLine();
+                }
             }
         }
 
