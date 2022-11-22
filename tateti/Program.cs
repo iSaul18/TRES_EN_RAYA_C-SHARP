@@ -8,6 +8,7 @@ namespace tateti
     {
         static private int jugador = 1;
         static private int ingreso = 0;
+        static private byte turno = 1;
         static private bool ingresoCorrecto = true;
 
         static public int Jugador
@@ -26,33 +27,46 @@ namespace tateti
             set => ingresoCorrecto = value;
         }
 
+        static public byte Turno
+        {
+            get => turno;
+            set => turno = value;
+        }
+
         static void Main(string[] args)
         {
-            byte turno = 1;
+            string continuar = "no";
 
-            CrearTablero(dateGame);
-
-            while (IngresoCorrecto && turno <= 9)
+            do
             {
-                PedirIngreso();
-                RecibirIngreso();
+                CrearTablero(dateGame);
 
-                if (VerificarIngreso())
+                while (IngresoCorrecto && Turno <= 9)
                 {
-                    RunGame();
-                    ActualizarTablero();
-                    turno++;
+                    PedirIngreso();
+                    RecibirIngreso();
 
-                    if (IsPlayerWin())
-                        break;
+                    if (VerificarIngreso())
+                    {
+                        RunGame();
+                        ActualizarTablero();
+                        Turno++;
+
+                        if (IsPlayerWin())
+                            break;
+                    }
+
+                    if (Turno == 9)
+                    {
+                        Console.WriteLine("Empate");
+                        Console.ReadLine();
+                    }
                 }
 
-                if (turno == 9)
-                {
-                    Console.WriteLine("Empate");
-                    Console.ReadLine();
-                }
-            }
+                Console.WriteLine("\n| ¿Desea Volver a Jugar? \n SI || NO|");
+                continuar = Console.ReadLine();
+                ResetGame();
+            } while (continuar.ToLower() == "si");
         }
 
         // Datos del Tablero
@@ -107,8 +121,7 @@ namespace tateti
                     || Ingreso.ToString().Length != 1
                 )
                 {
-                    Console.WriteLine("Gracias por jugar");
-                    Console.ReadKey();
+                    Console.WriteLine("Gracias por jugar \n");
                 }
                 else
                     dataInput[Ingreso] = Ingreso;
@@ -158,7 +171,7 @@ namespace tateti
             //f == figurePlayerContrarie
             char f = Jugador == 1 ? 'O' : 'X';
             int playerWinner = f == 'O' ? 2 : 1;
-            string playerWinText = $"El ganador es el jugador {playerWinner}, su simbolo es: {f}";
+            string playerWinText = $"|El ganador es el jugador {playerWinner}, su simbolo es: {f}|";
 
             bool isWin = false;
 
@@ -196,6 +209,18 @@ namespace tateti
                 Jugador = 2;
             else
                 Jugador = 1;
+        }
+
+        //Reiniciar estados del juego
+        static public void ResetGame()
+        {
+            Jugador = 1;
+            IngresoCorrecto = true;
+            Ingreso = 0;
+            Turno = 1;
+            dateGame = new char[,] { { '3', '1', '2' }, { '6', '4', '5' }, { '9', '7', '8' }, };
+            dataInput = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            Console.Clear();
         }
     }
 }
