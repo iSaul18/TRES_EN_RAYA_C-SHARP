@@ -81,6 +81,12 @@ namespace tateti
         {
             int ingresoSeguro = 0;
             IngresoCorrecto = int.TryParse(Console.ReadLine(), out ingresoSeguro);
+
+            if (ingresoSeguro.ToString().Length != 1)
+            {
+                IngresoCorrecto = false;
+                return;
+            }
             Ingreso = ingresoSeguro;
         }
 
@@ -142,6 +148,7 @@ namespace tateti
             CambiarJugador();
         }
 
+        //Verificar si algún jugador ganó
         static public bool IsPlayerWin()
         {
             //f == figurePlayerContrarie
