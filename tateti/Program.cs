@@ -157,65 +157,17 @@ namespace tateti
             bool isWin = false;
 
             //----------------------------------------------------------------------------------
-            //Full Horizantales
 
-            // {    { '3', '1', '2' },
-            //      { '6', '4', '5' },
-            //      { '9', '7', '8' }, };
-
-            if (dateGame[0, 0] == f && dateGame[0, 1] == f && dateGame[0, 2] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            else if (dateGame[1, 0] == f && dateGame[1, 1] == f && dateGame[1, 2] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            else if (dateGame[2, 0] == f && dateGame[2, 1] == f && dateGame[2, 2] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            //----------------------------------------------------------------------------------
-
-            //Full Verticales
-
-            // {    { '3', '1', '2' },
-            //      { '6', '4', '5' },
-            //      { '9', '7', '8' }, };
-
-            else if (dateGame[0, 0] == f && dateGame[1, 0] == f && dateGame[2, 0] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            else if (dateGame[0, 1] == f && dateGame[1, 1] == f && dateGame[2, 1] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            else if (dateGame[0, 2] == f && dateGame[1, 2] == f && dateGame[2, 2] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            //----------------------------------------------------------------------------------
-
-            //Full Diagonales
-
-            // {    { '3', '1', '2' },
-            //      { '6', '4', '5' },
-            //      { '9', '7', '8' }, };
-
-
-            else if (dateGame[0, 1] == f && dateGame[1, 2] == f && dateGame[2, 0] == f)
-            {
-                isWin = true;
-                Console.WriteLine(playerWinText);
-            }
-            else if (dateGame[0, 0] == f && dateGame[1, 2] == f && dateGame[2, 1] == f)
+            if (
+                dateGame[0, 0] == f && dateGame[0, 1] == f && dateGame[0, 2] == f
+                || dateGame[1, 0] == f && dateGame[1, 1] == f && dateGame[1, 2] == f
+                || dateGame[2, 0] == f && dateGame[2, 1] == f && dateGame[2, 2] == f
+                || dateGame[0, 0] == f && dateGame[1, 0] == f && dateGame[2, 0] == f
+                || dateGame[0, 1] == f && dateGame[1, 1] == f && dateGame[2, 1] == f
+                || dateGame[0, 2] == f && dateGame[1, 2] == f && dateGame[2, 2] == f
+                || dateGame[0, 1] == f && dateGame[1, 2] == f && dateGame[2, 0] == f
+                || dateGame[0, 0] == f && dateGame[1, 2] == f && dateGame[2, 1] == f
+            )
             {
                 isWin = true;
                 Console.WriteLine(playerWinText);
